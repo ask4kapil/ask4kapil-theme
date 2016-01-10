@@ -25,7 +25,7 @@ $(document).ready (function(){
                 lift();
             }
         });
-    }, 4000)
+    }, 4000);
     function lift(){
         $(".head-text").addClass("lift-text");
     }
