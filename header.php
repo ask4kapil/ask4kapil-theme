@@ -26,6 +26,13 @@
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
+		<div class="se-pre-con"></div>
+		<script>
+			$(window).load(function() {
+				// Animate loader off screen
+				setTimeout(function(){$(".se-pre-con").fadeOut("slow")},2000);
+			});
+		</script>
 		<?php if(is_front_page()) {?>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<script src="<?php echo get_template_directory_uri() . '/lib/quovolver/jquery.quovolver.js'?>"></script>
