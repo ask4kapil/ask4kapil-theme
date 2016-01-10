@@ -1,0 +1,241 @@
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../fonts/pacifico-webfont.eot');
+    src: url('../fonts/pacifico-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/pacifico-webfont.woff2') format('woff2'),
+    url('../fonts/pacifico-webfont.woff') format('woff'),
+    url('../fonts/pacifico-webfont.ttf') format('truetype'),
+    url('../fonts/pacifico-webfont.svg#pacificoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*------------------------------------------/
+/-----------------NavBar--------------------/
+/------------------------------------------*/
+.logo {
+    padding: 24px 15px !important;
+    display: inline-block;
+    height: auto !important;
+    font-family: 'Pacifico', cursive;
+    color: #fff !important;
+    font-size: 34px !important;
+}
+.navbar-beyond-learning {
+    margin-bottom: 0px !important;
+    background-color: rgba(62, 201, 195, 0.9);
+    border: none !important;
+    border-radius: 0px !important;
+    padding: 10px 0;
+    -webkit-transition: padding .3s;
+    -moz-transition: padding .3s;
+    transition: padding .3s;
+    transition-property: padding;
+    transition-duration: 0.3s;
+    transition-timing-function: initial;
+    transition-delay: initial;
+}
+.navbar-beyond-learning.navbar-shrink {
+    padding: 0;
+}
+.navbar-beyond-learning li a {
+    padding: 24px 15px !important;
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.navbar-beyond-learning li a:hover,
+.navbar-beyond-learning li a:focus,
+.navbar-beyond-learning li a.active {
+    background-color: rgba(51, 162, 157, 0.9) !important;
+    color: #fff;
+}
+
+/*------------------------------------------/
+/-----------------Footer--------------------/
+/------------------------------------------*/
+.foot {
+    position: relative;
+    top: 100px;
+}
+.foot-logo {
+    font-family: 'Pacifico', cursive;
+    color: #3EC9C3;
+    font-size: 30px;
+    text-align: center;
+}
+.foot-text {
+    color: #888;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 0px;
+    text-transform: uppercase;
+}
+.foot-text a {
+    color: #3EC9C3;
+}
+@media (min-width: 200px) and (max-width: 767px) {
+    .navstyle {
+        width: 100% !important;
+    }
+    .navstyle li a {
+        padding: 10px 15px !important;
+        text-align: center;
+        display: block;
+    }
+    .notes button {
+        margin-top: 20px;
+    }
+    .centertext {
+        text-align: center;
+    }
+    .btn-or {
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .social {
+        margin-top: 10px;
+    }
+    .menu-button {
+        padding: 8px 10px !important;
+        margin-top: 9px !important;
+        font-size: 30px !important;
+        color: #fff;
+    }
+    figure.effect-Beauty h2 {
+        margin-top: 15%;
+        font-size: 16px;
+    }
+    figure.effect-Beauty p {
+        padding: 6px;
+        display: none;
+    }
+    .features,
+    .about,
+    .notes,
+    .testimonials,
+    .address,
+    .gallery {
+        padding: 40px 0px;
+    }
+}
+@media (min-width: 768px) and (max-width: 990px) {
+    .social {
+        margin-top: 10px;
+    }
+    .notes button {
+        padding: 14px 19px;
+        font-size: 13px;
+    }
+}
+@media (min-width: 100px) and (max-width: 350px) {
+    .sorting {
+        font-size: 10px;
+    }
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+/* Carousel base class */
+.carousel {
+    height: 500px;
+}
+a.carousel-control:link,
+a.carousel-control:visited {
+    color: #FBFBFB;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel .item {
+    height: 500px;
+    background-color: #ffffff;
+}
+.carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: inherit;
+    background-size: cover;
+    background-position: center center;
+}
+.carousel-caption {
+    color: #fff;
+}
+.carousel-caption {
+    right: 20%;
+    left: 20%;
+    top: 30%;
+}
+.tagline {
+    font-size: 54px;
+    font-weight: 400;
+    font-family: Pacifico;
+}
+.mask-image {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+.first-slide {
+    background-image: url("../img/image1.jpg");
+}
+.first-slide + .mask-image {
+    background-color: rgba(188, 178, 41, 0.4);
+}
+.second-slide {
+    background-image: url("../img/image2.jpg");
+}
+.second-slide + .mask-image {
+     background-color: rgba(26, 188, 156, 0.4);
+ }
+.third-slide {
+    background-image: url("../img/image3.jpg");
+}
+.third-slide + .mask-image {
+    background-color: rgba(223, 223, 223, 0.27);
+}
+.forth-slide {
+    background-image: url("../img/image4.jpg");
+}
+.forth-slide + .mask-image {
+    background-color: rgba(223, 223, 223, 0.27);
+}
+.fifth-slide {
+    background-image: url("../img/image5.jpg");
+}
+.fifth-slide + .mask-image {
+    background-color: rgba(223, 223, 223, 0.27);
+}
+.inner-addon {
+    position: relative;
+}
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+/* align icon */
+.left-addon .glyphicon {
+    left: 0px;
+}
+.right-addon .glyphicon {
+    right: 10px;
+}
+/* add padding  */
+.left-addon input {
+    padding-left: 30px;
+}
+.right-addon input {
+    padding-right: 30px;
+}
