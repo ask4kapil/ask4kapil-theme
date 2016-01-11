@@ -37,7 +37,9 @@
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<script src="<?php echo get_template_directory_uri() . '/lib/quovolver/jquery.quovolver.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/mixitup/build/jquery.mixitup.min.js'?>"></script>
+				<script src="<?php echo get_template_directory_uri() . '/lib/scrollreveal.min.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/typed.min.js'?>"></script>
+				<script src="<?php echo get_template_directory_uri() . '/lib/Chart.min.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/js/front-page.js'?>"></script>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
@@ -112,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="position: relative;top: 100px;">
+		<div class="top-header">
 		<!--<div class="container">-->
 			<!-- site-header-->
 			<!--<header class="site-header">

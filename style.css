@@ -7,9 +7,12 @@ Description: Theme for my website
 Version: 1.0
 */
 body {
-    font-family: Arial, sans-serif;
+    color: #8c8c8c;
+    background: #f1f2f7;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 100;
+    overflow-x: hidden;
     font-size: 14px;
-    color: #333333;
 }
 
 a:link,

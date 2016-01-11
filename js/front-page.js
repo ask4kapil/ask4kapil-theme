@@ -3,6 +3,8 @@
  */
 $(document).ready (function(){
     'use strict';
+
+    scrollTo(0,0);
     //To make Carousel Quotes using library Quovolver
     $('.quotes').quovolver({
         equalHeight   : true
@@ -14,35 +16,42 @@ $(document).ready (function(){
         cycle: true
     });
 
-    $('#myCarousel').bind('slide.bs.carousel', function (e) {
-
-    });
     setTimeout(function() {
         $("#typed").typed({
-            strings: ["a UI Expert.", "a front end developer.", "Kapil Kumawat"],
+            strings: ["a UI Expert.", "a front end developer.", "the Kapil Kumawat"],
             typeSpeed: 30,
             callback: function(){
                 lift();
             }
         });
     }, 4000);
+
     function lift(){
         $(".head-text").addClass("lift-text");
+    }
+
+    if (screen.width > 966) {
+        window.scrollReveal = new scrollReveal();
     }
 
     // Make the images mixitUP library
     $('#lessonsimg').mixItUp();
 
     var screenHeight = $(window).height();
+
     function setHeightCarousel() {
         $('.carousel .item').height(screenHeight);
         $('.carousel .mask-image').height(screenHeight);
         $('.carousel').height(screenHeight);
     }
     setHeightCarousel();
-
+    $( window ).resize(function() {
+        screenHeight = $(window).height();
+        setHeightCarousel();
+    });
     //Make the navbar highlighted based on scroll and which section we are
     $(document).on("scroll", onScroll);
+
     $('a[href^="#"].page-scroll').on('click', function (e) {
         e.preventDefault();
         $(".navbar-collapse").collapse('hide');
@@ -62,13 +71,20 @@ $(document).ready (function(){
                 $(document).on("scroll", onScroll);
             });
     });
+
     function onScroll(event){
-        var scrollPosition = $(document).scrollTop();
+        var scrollPosition = $(document).scrollTop(),
+            header = $('.navbar'),
+            topHeader = $('.top-header');
         if(scrollPosition > screenHeight) {
-            $('.navbar').addClass('navbar-fixed-top');
+            header.addClass('navbar-fixed-top');
+            header.addClass('navbar-shrink');
+            topHeader.addClass('top-fixed');
         }
         else {
-            $('.navbar').removeClass('navbar-fixed-top');
+            header.removeClass('navbar-fixed-top');
+            header.removeClass('navbar-shrink' );
+            topHeader.removeClass('top-fixed');
         }
         $(".navbar-collapse").collapse('hide');
         $('.nav li a').each(function () {
@@ -85,44 +101,6 @@ $(document).ready (function(){
         });
     }
     setTimeout(onScroll,100);
-    /**
-     * cbpAnimatedHeader.js v1.0.0
-     * http://www.codrops.com
-     *
-     * Licensed under the MIT license.
-     * http://www.opensource.org/licenses/mit-license.php
-     *
-     * Copyright 2013, Codrops
-     * http://www.codrops.com
-     */
-    var docElem = document.documentElement,
-        header = document.querySelector( '.navbar-fixed-top' ),
-        didScroll = false,
-        changeHeaderOn = 300;
-
-    function init() {
-        window.addEventListener( 'scroll', function( event ) {
-            if( !didScroll ) {
-                didScroll = true;
-                setTimeout( scrollPage, 250 );
-            }
-        }, false );
-    }
-
-    function scrollPage() {
-        var sy = scrollY();
-        if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-shrink' );
-        }
-        else {
-            classie.remove( header, 'navbar-shrink' );
-        }
-        didScroll = false;
-    }
-
-    function scrollY() {
-        return window.pageYOffset || docElem.scrollTop;
-    }
 
     function openPage(page, tab) {
         $state.go(page);
@@ -134,5 +112,56 @@ $(document).ready (function(){
             },1000);
         }
     }
-    init();
+
+    /**
+     * Design skills
+     */
+    var designSkills = [
+        {
+            value: 80,
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Adobe Photoshop"
+        },
+        {
+            value: 50,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Adobe Illustrator"
+        },
+        {
+            value: 60,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "HTML and CSS"
+        },
+        {
+            value: 90,
+            color: "#949FB1",
+            highlight: "#A8B3C5",
+            label: "WordPress"
+        },
+        {
+            value: 90,
+            color: "#4D5360",
+            highlight: "#616774",
+            label: "PHP"
+        },
+    ];
+
+
+    var designID = jQuery('#designing-skills');
+
+    if ( designID.length){
+        jQuery(function() {
+            var doughnut_ctx = document.getElementById("designing-skills").getContext("2d");
+            window.designSkill = new Chart(doughnut_ctx).Doughnut(designSkills, {
+                legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+            });
+
+            var legend = designSkill.generateLegend();
+            jQuery(".designing-legend").html(legend);
+        });
+    }
+
 });
