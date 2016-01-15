@@ -30,14 +30,17 @@
 		<script>
 			$(window).load(function() {
 				// Animate loader off screen
-				setTimeout(function(){$(".se-pre-con").fadeOut("slow")},2000);
+				setTimeout(function(){$(".se-pre-con").fadeOut("slow")},500);
 			});
+			theme_directory = "<?php echo get_template_directory_uri() ?>";
 		</script>
 		<?php if(is_front_page()) {?>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<div id="home">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<script src="<?php echo get_template_directory_uri() . '/lib/quovolver/jquery.quovolver.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/mixitup/build/jquery.mixitup.min.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/scrollreveal.min.js'?>"></script>
+				<script src="https://maps.googleapis.com/maps/api/js"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/typed.min.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/lib/Chart.min.js'?>"></script>
 				<script src="<?php echo get_template_directory_uri() . '/js/front-page.js'?>"></script>
@@ -83,6 +86,7 @@
 					</div>
 				</div>
 			</div>
+			</div>
 		<?php
 		}
 		?>
@@ -114,7 +118,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="top-header">
+		<div class="top-header <?php if(!is_front_page()) {echo 'top-fixed';} ?>">
 		<!--<div class="container">-->
 			<!-- site-header-->
 			<!--<header class="site-header">

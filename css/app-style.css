@@ -147,7 +147,7 @@
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 /* Carousel base class */
-.carousel {
+#myCarousel.carousel {
     height: 500px;
 }
 a.carousel-control:link,
@@ -159,11 +159,11 @@ a.carousel-control:visited {
     z-index: 10;
 }
 /* Declare heights because of positioning of img element */
-.carousel .item {
+#myCarousel.carousel .item {
     height: 500px;
     background-color: #ffffff;
 }
-.carousel-inner > .item > img {
+#myCarousel .carousel-inner > .item > img {
     position: absolute;
     top: 0;
     left: 0;
@@ -444,7 +444,9 @@ a.carousel-control:visited {
 .skill-green {
     background: #aec785;
 }
-
+#designing-skills {
+    display: inline-block;
+}
 .designing-legend {
     display: inline-block;
 }
@@ -1151,24 +1153,53 @@ a {
     display: none;
 }
 
-.blog-pagination.middle-nav {
+ul.page-numbers {
+    list-style: none;
     display: table;
     margin: 0 auto;
 }
 
-.blog-pagination .pagination>li>a,.blog-pagination .pagination>li>span {
-    color: #737373;
-    border-color: transparent;
+.page-numbers:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
 
-.blog-pagination .pagination>li>a:hover,.blog-pagination .pagination>li>span:hover,.blog-pagination .pagination>li>a:focus,.pagination>li>span:focus {
-    border-color: transparent;
+ul.page-numbers li {
+    display: block;
+    float: left;
+    text-align: center;
 }
 
-.blog-pagination .pagination>.active>a,.blog-pagination .pagination>.active>span,.blog-pagination .pagination>.active>a:hover,.blog-pagination .pagination>.active>span:hover,.blog-pagination .pagination>.active>a:focus,.blog-pagination .pagination>.active>span:focus {
+.page-numbers a,
+.page-numbers span {
+    display: block;
+    padding: 6px;
+    height: 34px;
+    width: 34px;
+    font-weight: 400;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: #888;
+}
+
+.page-numbers a span { padding: 0 }
+
+.page-numbers a:hover,
+.page-numbers.current,
+.page-numbers.current:hover {
     color: #FFF;
     background-color: #1fb5ac;
-    border-color: transparent;
+    text-decoration: none;
+}
+
+.page-numbers:hover { text-decoration: none }
+
+.prev.page-numbers, .next.page-numbers {
+    background-color: transparent !important;
 }
 
 .single-page {
@@ -1209,13 +1240,9 @@ a {
 .comment-section .comment-content {
     margin-left: 90px;
 }
-
-.comment-section .comment-meta {
-    padding-bottom: 15px;
+.comment-body {
     margin-bottom: 20px;
-    border-bottom: 1px solid #dddfeb;
 }
-
 .comment-section .comment-author {
     font-size: 16px;
     font-weight: 700;
@@ -1313,11 +1340,19 @@ a {
     -o-transition: all .35s ease;
     transition: all .35s ease;
 }
-
+.comment-reply-title {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #32323a;
+    margin-top: 0;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
 .contact-form-container {
 }
 
-.contact-form-container .form-title {
+.contact-container .form-title {
     font-size: 18px;
     font-weight: normal;
     text-transform: uppercase;
@@ -1341,7 +1376,7 @@ a {
     margin-right: 10px;
 }
 
-.contact-form-container input[type=text],.contact-form-container input[type=email],.contact-form-container input[type=url] {
+.contact-container input[type=text],.contact-container input[type=email],.contact-container input[type=url] {
     width: 100%;
     margin-bottom: 10px;
     float: left;
@@ -1379,7 +1414,7 @@ a {
     background: #FFF;
 }
 
-.contact-form-container textarea {
+.contact-container textarea {
     width: 98%;
     border: 1px solid transparent;
     background: #f0f0f0;
@@ -1394,7 +1429,7 @@ a {
     transition: all .35s ease;
 }
 
-.contact-form-container textarea:focus {
+.contact-container textarea:focus {
     outline: none;
     border-color: #1fb5ac;
     background: #FFF;
@@ -1413,6 +1448,9 @@ a {
     -ms-transition: all .35s ease;
     -o-transition: all .35s ease;
     transition: all .35s ease;
+}
+.wpcf7-recaptcha {
+    margin-bottom: 20px;
 }
 
 .contact-form .your-message::-webkit-input-placeholder {
@@ -1524,9 +1562,11 @@ a {
     margin: 0 0px 40px 0;
 }
 
-#google-map.style-two {
+#g-map {
     height: 400px;
     margin-top: 30px;
+    width: inherit;
+    display: block;
 }
 
 .map-linker {

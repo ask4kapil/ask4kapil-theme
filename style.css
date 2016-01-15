@@ -37,13 +37,8 @@ if it's not present, don't show loader */
     background: url(img/preloader.gif) center no-repeat #fff;
 }
 
-article.post {
-    margin: 20px 0;
-    border-bottom: 2px dotted #BBBBBB;
-}
-article.post:last-of-type {
-    border-bottom: none;
-}
+
+
 
 /** Aside Styles**/
 article.post-aside,
@@ -298,4 +293,415 @@ div.hd-search .search-submit {
 div.hd-search .search-field {
     vertical-align: top;
     padding: 3px 0;
+}
+/*--------------------------------------------------------------
+1.0 Reset Wordpress
+--------------------------------------------------------------*/
+body.admin-bar .navbar-fixed-top {
+    top: 28px;
+}
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+}
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+}
+.tags-links {
+    text-transform: capitalize;
+}
+.error-404 h1 {
+    text-align: center;
+}
+.featured-image {
+    position: relative;
+    margin-bottom: 10px;
+}
+.sticky {
+    background: #eee;
+    padding: 10px;
+}
+.entry-footer {
+    margin-bottom: 20px;
+}
+.view-all {
+    text-align: center;
+}
+.btn.custom-btn {
+    border: 1px solid;
+}
+/*--------------------------------------------------------------
+2.0 Widgets
+--------------------------------------------------------------*/
+.widget {
+    margin: 0 0 1.5em;
+}
+/* Make sure select elements fit in widgets */
+.widget select {
+    width: 100%;
+    padding: 10px;
+}
+/* Search widget */
+.widget_search .search-submit {
+    display: none;
+}
+#searchform {
+    position: relative;
+}
+#searchform input {
+    padding: 10px;
+    height: 45px;
+    border-radius: 0;
+    float: left;
+}
+#searchform .btn{
+    position: absolute;
+    border-radius: 0;
+    right: 0;
+    padding: 11px 20px;
+    background: none;
+}
+#searchform .btn:focus,
+#searchform .btn:active:focus,
+#searchform .btn.active:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* 2.10 ==========  Widgets  ==========*/
+.widget {
+    background: #FFF;
+    padding:30px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    word-wrap: break-word;
+    list-style: none;
+}
+.widget select {
+    width: 100%;
+    padding: 10px;
+}
+.widget .widgettitle {
+    margin: 0;
+    margin-bottom: 45px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color:#32323a;
+}
+/* 2.11 Search widget */
+.search-box {
+    padding: 10px 30px;
+}
+.search-box .search-form {
+    position: relative;
+
+}
+.search-form input.search-field {
+    border-color:transparent;
+    box-shadow: none;
+    color:#8c8c8c;
+    padding-left: 0px;
+    margin-left: 30px;
+    width: 100%;
+}
+.search-form i.fa-search {
+    cursor: pointer;
+    position: absolute;
+    font-size: 20px;
+    color:#bfbfbf;
+    top:7px;
+}
+
+/* 2.12 Popular Post Widget */
+.popular-posts {
+
+}
+.popular-posts .post-archives {
+
+}
+.post-archive .post-list {
+    list-style: none;
+    padding: 0px;
+}
+.post-list .post-item{
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.post-list .post-item img {
+    float: left;
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    display:inline-block;
+}
+.post-list .post-item .title {
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    line-height: 20px;
+    color:#8c8c8c;
+    margin-bottom: 10px;
+}
+.post-list .post-item .title a{
+    color:#8c8c8c;
+}
+.post-list .post-item .title a:hover {
+    color:#424242;
+}
+.post-list .post-item .post-meta {
+    margin: 0;
+    margin-left: 100px;
+    border-color:transparent;
+}
+
+/* 2.13 Arcives Widget */
+.blog-sidebar .widget_rss ul,
+.blog-sidebar .widget_pages ul,
+.blog-sidebar .widget_categories ul,
+.blog-sidebar .widget_nav_menu ul,
+.blog-sidebar .widget_archive ul,
+.blog-sidebar .widget_meta ul,
+.blog-sidebar .widget_recent_entries ul,
+.blog-sidebar .widget_recent_comments ul{
+    padding: 0;
+}
+.blog-sidebar .widget_rss li,
+.blog-sidebar .widget_pages li,
+.blog-sidebar .widget_categories li,
+.blog-sidebar .widget_nav_menu li,
+.blog-sidebar .widget_archive li,
+.blog-sidebar .widget_meta li,
+.blog-sidebar .widget_recent_entries li,
+.blog-sidebar .widget_recent_comments li{
+    list-style: none;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-bottom: 1px solid #f0f1f2;
+    position: relative;
+}
+.blog-sidebar .widget_categories li a:before,
+.blog-sidebar .widget_archive li a:before,
+.blog-sidebar .widget_nav_menu li a:before,
+.blog-sidebar .widget_meta li a:before,
+.blog-sidebar .widget_recent_entries li a:before {
+    content: "\f105";
+    display: block;
+    font-family: FontAwesome;
+    position: absolute;
+    left: -15px;
+    top: 0;
+}
+.blog-sidebar .widget_categories a,
+.blog-sidebar .widget_archive a,
+.blog-sidebar .widget_nav_menu a,
+.blog-sidebar .widget_meta a,
+.blog-sidebar .widget_recent_entries a {
+    position: relative;
+    color: #606060;
+    width: 100%;
+    line-height: 20px;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.blog-sidebar .widget_categories a:hover,
+.blog-sidebar .widget_archive a:hover,
+.blog-sidebar .widget_nav_menu a:hover,
+.blog-sidebar .widget_recent_entries a:hover  {
+    color: #f39c12;
+    margin-left: 10px;
+}
+.blog-sidebar .widget_recent_comments li a:before {
+    content: "\f0e6";
+    display: block;
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0px;
+    top: 9px;
+}
+.blog-sidebar .widget_rss li a:before {
+    content: "\f09e";
+    display: block;
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0px;
+    top: 9px;
+}
+
+.widget.widget_rss img {
+    width: 20px;
+    margin-top: -7px;
+}
+
+/*calender*/
+.widget_calendar table {
+    margin: 0;
+}
+
+.widget_calendar td,
+.widget_calendar th {
+    line-height: 2.3333;
+    text-align: center;
+    padding: 0;
+}
+
+.widget_calendar caption {
+    font-family: "Raleway", serif;
+    font-weight: 700;
+    margin: 0 0 1.6em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.widget_calendar tbody a {
+    background-color: #333;
+    color: #fff;
+    display: block;
+    font-weight: 700;
+}
+
+.widget_calendar tbody a:hover,
+.widget_calendar tbody a:focus {
+    background-color: #707070;
+    background-color: rgba(51, 51, 51, 0.7);
+    color: #fff;
+}
+
+/* 2.14 Twitter Widget */
+.tweet-list ul {
+    padding: 0;
+}
+.tweet-list ul li{
+    list-style: none;
+    position: relative;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 35px;
+    border-bottom: 1px solid #dddfeb;
+}
+.tweet-list ul li:before {
+    content: "\f099";
+    font-family: FontAwesome;
+    font-size: 25px;
+    color:#1fb5ac;
+    position: absolute;
+    left: 0px;
+}
+.tweet-list ul li .tweet-content {
+    margin-bottom: 5px;
+}
+.tweet-list ul li .tweet-time {
+    text-align: right;
+    font-style: italic;
+    font-size: 14px;
+    color:#b2b2b2;
+}
+/*-----  End of UI and Elements  ------*/
+
+
+/*--------------------------------------------------------------
+3.0 Comments
+--------------------------------------------------------------*/
+.comment-content a {
+    word-wrap: break-word;
+}
+.bypostauthor {
+    display: block;
+}
+/*--------------------------------------------------------------
+4.0 Media
+--------------------------------------------------------------*/
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+/*--------------------------------------------------------------
+4.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin: 0 auto;
+}
+.wp-caption-text {
+    text-align: center;
+}
+.wp-caption .wp-caption-text {
+    margin: 0.8075em 0;
+}
+/*--------------------------------------------------------------
+4.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+    margin-bottom: 1.5em;
+}
+.gallery-item {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+    max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+    max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+    max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+    max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+}
+.gallery-caption {
+    display: block;
+}
+
+/*--------------------------------------------------------------
+4.3 Tag
+--------------------------------------------------------------*/
+.tagcloud a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 4px 2px;
+    background-color: #f7f7f7;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.edit-link {
+    margin-left: 5px;
+    float: right;
 }

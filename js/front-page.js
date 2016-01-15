@@ -40,9 +40,9 @@ $(document).ready (function(){
     var screenHeight = $(window).height();
 
     function setHeightCarousel() {
-        $('.carousel .item').height(screenHeight);
-        $('.carousel .mask-image').height(screenHeight);
-        $('.carousel').height(screenHeight);
+        $('#myCarousel.carousel .item').height(screenHeight);
+        $('#myCarousel.carousel .mask-image').height(screenHeight);
+        $('#myCarousel.carousel').height(screenHeight);
     }
     setHeightCarousel();
     $( window ).resize(function() {
@@ -52,20 +52,27 @@ $(document).ready (function(){
     //Make the navbar highlighted based on scroll and which section we are
     $(document).on("scroll", onScroll);
 
-    $('a[href^="#"].page-scroll').on('click', function (e) {
+    $('.navbar-nav a[href]').on('click', function (e) {
         e.preventDefault();
+        e.stopPropagation();
         $(".navbar-collapse").collapse('hide');
         $(document).off("scroll");
         $('a').each(function () {
             $(this).removeClass('active');
         });
         $(this).addClass('active');
-        var target = this.hash;
-        target = target.replace("/","");
+        var target = this.href.substr(this.baseURI.length);
+        if(this.baseURI.indexOf('#') > -1 ) {
+            target = this.href.substr(this.baseURI.substr(0,this.baseURI.indexOf('#')).length);
+        }
+        target = '#' + target.replace("/","");
+        if(target === "#") {
+            target="#home";
+        }
         var $target = $(target);
         if($target.length > 0)
             $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
+                'scrollTop': $target.offset().top - 100
             }, 500, 'swing', function () {
                 window.location.hash = target;
                 $(document).on("scroll", onScroll);
@@ -76,6 +83,26 @@ $(document).ready (function(){
         var scrollPosition = $(document).scrollTop(),
             header = $('.navbar'),
             topHeader = $('.top-header');
+       /* $('.nav li a').each(function () {
+            var currentLink = $(this);
+            var target = this.href.substr(this.baseURI.length);
+            if(this.baseURI.indexOf('#') > -1 ) {
+                target = this.href.substr(this.baseURI.substr(0,this.baseURI.indexOf('#')).length);
+            }
+            target = '#' + target.replace("/","");
+            if(target === "#") {
+                target="#home";
+            }
+            var refElement = $(target);
+            if(refElement.length > 0)
+                if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+                    $('.nav li a').removeClass("active");
+                    currentLink.addClass("active");
+                }
+                else{
+                    currentLink.removeClass("active");
+                }
+        });*/
         if(scrollPosition > screenHeight) {
             header.addClass('navbar-fixed-top');
             header.addClass('navbar-shrink');
@@ -87,74 +114,60 @@ $(document).ready (function(){
             topHeader.removeClass('top-fixed');
         }
         $(".navbar-collapse").collapse('hide');
-        $('.nav li a').each(function () {
-            var currentLink = $(this);
-/*            var refElement = $(currentLink.attr("href").replace("/",""));
-            if(refElement.length > 0)
-                if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
-                    $('.nav li a').removeClass("active");
-                    currentLink.addClass("active");
-                }
-                else{
-                    currentLink.removeClass("active");
-                }*/
-        });
+
     }
     setTimeout(onScroll,100);
 
-    function openPage(page, tab) {
-        $state.go(page);
-        setTimeout(onScroll, 1000);
-        if(tab && $state.$current.name !== page) {
-            var tabStr = 'a[href=\'' + tab + '\']';
-            setTimeout(function() {
-                $(tabStr).click();
-            },1000);
-        }
-    }
 
     /**
      * Design skills
      */
     var designSkills = [
         {
-            value: 80,
+            value: 70,
             color: "#F7464A",
             highlight: "#FF5A5E",
-            label: "Adobe Photoshop"
+            label: "Angular"
+        },
+        {
+            value: 70,
+            color: "#46BFBD",
+            highlight: "#5AD3D1",
+            label: "Ionic"
+        },
+        {
+            value: 80,
+            color: "#FDB45C",
+            highlight: "#FFC870",
+            label: "Bootstrap"
         },
         {
             value: 50,
-            color: "#46BFBD",
-            highlight: "#5AD3D1",
-            label: "Adobe Illustrator"
-        },
-        {
-            value: 60,
-            color: "#FDB45C",
-            highlight: "#FFC870",
-            label: "HTML and CSS"
-        },
-        {
-            value: 90,
             color: "#949FB1",
             highlight: "#A8B3C5",
-            label: "WordPress"
+            label: "SASS/LESS"
         },
         {
-            value: 90,
+            value: 50,
             color: "#4D5360",
             highlight: "#616774",
             label: "PHP"
-        },
+        }
     ];
 
 
     var designID = jQuery('#designing-skills');
 
     if ( designID.length){
+        var canvas = document.createElement('canvas');
+        //designID.remove();
+        designID.append(canvas);
+        canvas.setAttribute('height', '225px');
+        canvas.setAttribute('width', '225px');
+        canvas.style.height = '225px';
+        canvas.style.width = '225px';
         jQuery(function() {
-            var doughnut_ctx = document.getElementById("designing-skills").getContext("2d");
+            var doughnut_ctx = canvas.getContext("2d");
             window.designSkill = new Chart(doughnut_ctx).Doughnut(designSkills, {
                 legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
             });
@@ -163,5 +176,33 @@ $(document).ready (function(){
             jQuery(".designing-legend").html(legend);
         });
     }
+    /*-----------------------------------------------------------
+     Google Map - with support of gmaps.js
+     -----------------------------------------------------------*/
 
+    var gmapID = jQuery('#g-map');
+    if(gmapID.length) {
+        var map;
+        jQuery(document).ready(function () {
+            "use strict";
+            map = new google.maps.Map(gmapID[0], {
+                center: new google.maps.LatLng(17.5316855, 78.3671564),
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(17.5316855, 78.3671564),
+                map: map,
+                title: 'Kapil Kumawat home',
+                icon: theme_directory+ "/img/marker.png"
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: '<p>Kapil Kumawat Home</p>'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+        });
+    }
 });
