@@ -234,24 +234,9 @@ get_header();
                             </header>
                             <div class="entry-content">
 
-                                <?php if(is_search() OR is_archive()) { ?>
-                                    <p>
-                                        <?php echo get_the_excerpt();?>
-                                        <a href="<?php the_permalink();?>"> Read more&raquo;</a>
-                                    </p>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <?php if($post->post_excerpt) {?>
-
-                                        <p>
-                                            <?php echo get_the_excerpt();?>
+                                     <?php echo get_the_excerpt();?>
                                             <a href="<?php the_permalink();?>"> Read more&raquo;</a>
-                                        </p>
-                                    <?php } else {?>
-                                        <?php echo the_excerpt(); ?>
-                                    <?php }
-                                } ?>
+
                             </div>
                         </article>
                         <?php
