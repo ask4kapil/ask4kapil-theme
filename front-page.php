@@ -249,7 +249,7 @@ get_header();
                                             <a href="<?php the_permalink();?>"> Read more&raquo;</a>
                                         </p>
                                     <?php } else {?>
-                                        <?php echo the_content();?>
+                                        <?php echo the_excerpt(); ?>
                                     <?php }
                                 } ?>
                             </div>
