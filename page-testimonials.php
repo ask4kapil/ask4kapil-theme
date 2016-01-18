@@ -57,9 +57,9 @@ get_header();
                             <div class="col-md-6" data-scroll-reveal="enter from the right after .5s">
                                 <div class="clients-logos section-box">
                                     <ul class="logo-items">
-                                        <li><a href="#"><img src="http://localhost/learnmobileapp/wp-content/uploads/2016/01/pega.png" alt="#" class="client-logo"></a></li>
-                                        <li><a href="#"><img src="http://localhost/learnmobileapp/wp-content/uploads/2016/01/ca.png" alt="#" class="client-logo"></a></li>
-                                        <li><a href="#"><img src="http://localhost/learnmobileapp/wp-content/uploads/2016/01/Syntel.jpg" alt="#" class="client-logo"></a></li>
+                                        <li><a href="#"><img src="<?php echo get_template_directory_uri()?>/img/pega.png" alt="#" class="client-logo"></a></li>
+                                        <li><a href="#"><img src="<?php echo get_template_directory_uri()?>/img/ca.png" alt="#" class="client-logo"></a></li>
+                                        <li><a href="#"><img src="<?php echo get_template_directory_uri()?>/img/Syntel.jpg" alt="#" class="client-logo"></a></li>
                                     </ul>
                                 </div>
                             </div>

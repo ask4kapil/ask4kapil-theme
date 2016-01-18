@@ -34,7 +34,7 @@ if ($allPages->have_posts()) :
 
                                     <?php the_excerpt()
                                     ?>
-                                    <i class="fa fa-external-link"></i>
+                                    <a href="<?php the_permalink()?>">Read more <i class="fa fa-external-link"></i></a>
                                 </div>
                             </div>
                             <?php

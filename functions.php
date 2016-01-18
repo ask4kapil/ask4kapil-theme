@@ -5,6 +5,7 @@
 		wp_enqueue_style('font-awesome', get_template_directory_uri() .'/lib/font-awesome-4.5.0/css/font-awesome.min.css');
 		wp_enqueue_style('style', get_stylesheet_uri());
 		wp_enqueue_style('app-style', get_template_directory_uri().'/css/app-style.css');
+		wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css');
 
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', get_template_directory_uri().'/lib/jquery-2.1.4.min.js', false, null);

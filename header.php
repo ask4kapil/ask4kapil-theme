@@ -100,15 +100,12 @@
 				</div>
 				<div>
 					<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
-						<!--<ul class="nav navbar-nav navbar-right navstyle">
-						</ul>-->
 						<?php
 						wp_nav_menu( array(
 								'menu'              => 'primary',
 								'theme_location'    => 'primary',
 								'depth'             => 2,
 								'container'         => 'div',
-								'container_class'   => 'collapse navbar-collapse',
 								'container_id'      => 'bs-example-navbar-collapse-1',
 								'menu_class'        => 'nav navbar-nav navbar-right navstyle',
 								'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
@@ -119,23 +116,4 @@
 			</div>
 		</div>
 		<div class="top-header <?php if(!is_front_page()) {echo 'top-fixed';} ?>">
-		<!--<div class="container">-->
-			<!-- site-header-->
-			<!--<header class="site-header">
-				<div class="hd-search">
-					<?php /*get_search_form();*/?>
-				</div>
-				<h1><a href="<?php /*echo home_url();*/?>"><?php /*bloginfo('name');*/?></a></h1>
-				<h5><?php /*bloginfo('description'); */?>	<?php /*if(is_page('portfolio')) { */?>
-						Thank You
-					<?php /*}*/?></h5>
 
-				<nav class="site-nav">
-					<?php
-/*					$args = array(
-						'theme_location' => 'primary'
-					);
-					*/?>
-					<?php /*wp_nav_menu($args); */?>
-				</nav>
-			</header>--><!-- /site-header-->
