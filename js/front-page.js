@@ -18,7 +18,7 @@ $(document).ready (function(){
 
     setTimeout(function() {
         $("#typed").typed({
-            strings: ["a UI Expert.", "a front end developer.", "the Kapil Kumawat"],
+            strings: ["an UI Expert.", "a front end developer.", "the Kapil Kumawat"],
             typeSpeed: 30,
             callback: function(){
                 lift();

@@ -396,6 +396,10 @@
 		return $count . ' Views';
 	}
 
+
+    // Remove issues with prefetching adding extra views
+    remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
 	/**
 	 * To count number of views and store in database.
 	 *
@@ -404,7 +408,7 @@
 	function ask_set_post_view( $postID ) {
 		$count_key = 'post_views_count';
 		$count     = (int) get_post_meta( $postID, $count_key, true );
-		if ( $count < 1 ) {
+		if ( $count < 0 ) {
 			delete_post_meta( $postID, $count_key );
 			add_post_meta( $postID, $count_key, '0' );
 		} else {
