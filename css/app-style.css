@@ -1881,3 +1881,16 @@ table tbody tr th,table tbody tr td {
     -o-transition: all .35s ease;
     transition: all .35s ease;
 }
+.circle-icon {
+    background-color: orange;
+    padding: 11px 13px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+    color: white;
+    font-size: 24px;
+}
